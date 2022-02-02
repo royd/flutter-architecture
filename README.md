@@ -29,3 +29,4 @@ A Flutter architecture proposal
 ## App Components
 1. Stateful use the name suffix `Manager`
 2. Stateless use the name suffix `Service`
+3. HTTP clients use the name suffix `Client`
