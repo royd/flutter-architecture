@@ -18,11 +18,6 @@ class _ArchitectureAppState extends State<ArchitectureApp> {
   void initState() {
     super.initState();
 
-    ///
-    /// Prefer registering concretions as abstractions.
-    /// Prefer lazy registration.
-    /// Register global singletons at the top level of the app.
-    ///
     _get.registerLazySingleton<IncrementingService>(
         () => SingleIncrementingService());
   }

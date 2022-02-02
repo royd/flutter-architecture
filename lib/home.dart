@@ -2,9 +2,6 @@ import 'package:architecture/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-///
-/// Create a local private static variable named _get
-///
 final _get = GetIt.instance;
 
 class Home extends StatefulWidget {
@@ -21,17 +18,11 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
 
-    ///
-    /// Register a bloc close to where it is used in the tree.
-    ///
-    _get.registerSingleton(HomeBloc());
+    _get.registerLazySingleton(() => HomeBloc());
   }
 
   @override
   void dispose() {
-    ///
-    /// Unregister a bloc when it goes out of scope.
-    ///
     _get.unregister<HomeBloc>();
 
     super.dispose();
@@ -54,9 +45,6 @@ class HomeCountDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ///
-    /// Prefer using _get as a callable
-    ///
     final bloc = _get<HomeBloc>();
 
     return Center(
