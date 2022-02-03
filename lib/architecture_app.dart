@@ -1,5 +1,5 @@
 import 'package:architecture/get.dart';
-import 'package:architecture/home.dart';
+import 'package:architecture/flow/home/home.dart';
 import 'package:architecture/services/incrementing_service.dart';
 import 'package:architecture/services/single_incrementing_service.dart';
 import 'package:flutter/material.dart';
