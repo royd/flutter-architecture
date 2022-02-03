@@ -1,8 +1,6 @@
+import 'package:architecture/get.dart';
 import 'package:architecture/home_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-
-final _get = GetIt.instance;
 
 class Home extends StatefulWidget {
   const Home({Key? key, required this.title}) : super(key: key);
@@ -18,12 +16,12 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
 
-    _get.registerLazySingleton(() => HomeBloc());
+    get.registerLazySingleton(() => HomeBloc());
   }
 
   @override
   void dispose() {
-    _get.unregister<HomeBloc>();
+    get.unregister<HomeBloc>();
 
     super.dispose();
   }
@@ -45,7 +43,7 @@ class HomeCountDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = _get<HomeBloc>();
+    final bloc = get<HomeBloc>();
 
     return Center(
       child: Column(
@@ -78,7 +76,7 @@ class HomeIncrementButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: _get<HomeBloc>().increment,
+      onPressed: get<HomeBloc>().increment,
       tooltip: 'Increment',
       child: const Icon(Icons.add),
     );

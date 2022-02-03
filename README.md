@@ -6,8 +6,8 @@ A Flutter architecture proposal
 1. Prefer class instances over static classes
 2. Depend on abstractions, not concretions
 3. Use `get_it` to locate dependencies
-4. Use a local private static variable named `_get` in each necessary file, e.g `final _get = GetIt.instance;`
-5. Prefer using `_get` as a callable, e.g. `_get<MyBloc>()` instead of `_get.get<MyBloc>()`
+4. Define a public static variable named `get` in its own top-level file, e.g `final get = GetIt.instance;`, for import by other files
+5. Prefer using `get` as a callable, e.g. `get<MyBloc>()` instead of `get.get<MyBloc>()`
 6. Register a dependency within the scope appropriate to its lifetime and unregistered afterward
 7. Prefer lazy registration
 

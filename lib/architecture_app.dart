@@ -1,10 +1,8 @@
+import 'package:architecture/get.dart';
 import 'package:architecture/home.dart';
 import 'package:architecture/services/incrementing_service.dart';
 import 'package:architecture/services/single_incrementing_service.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-
-final _get = GetIt.instance;
 
 class ArchitectureApp extends StatefulWidget {
   const ArchitectureApp({Key? key}) : super(key: key);
@@ -18,7 +16,7 @@ class _ArchitectureAppState extends State<ArchitectureApp> {
   void initState() {
     super.initState();
 
-    _get.registerLazySingleton<IncrementingService>(
+    get.registerLazySingleton<IncrementingService>(
         () => SingleIncrementingService());
   }
 
