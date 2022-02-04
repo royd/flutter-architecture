@@ -34,12 +34,15 @@ class _HomeState extends State<Home> {
         title: Text(widget.title),
         actions: [
           TextButton(
-              child: Text("Collect Sequence"),
+              child: const Text(
+                "Collect Sequence",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
               onPressed: () async {
-                final values = await Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ImportSeedFlow())
-                );
+                final values = await Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ImportSeedFlow()));
 
                 showDialog(
                   context: context,
@@ -47,16 +50,13 @@ class _HomeState extends State<Home> {
                     actions: [
                       TextButton(
                           onPressed: () => Navigator.pop(context),
-                          child: Text("Ok")
-                      )
+                          child: Text("Ok"))
                     ],
-                    content: Text(
-                      "You entered ${values?.join(", ") ?? "Nothing"}"
-                    ),
-                  )
+                    content:
+                        Text("You entered ${values?.join(", ") ?? "Nothing"}"),
+                  ),
                 );
-              }
-            )
+              })
         ],
       ),
       body: const HomeCountDisplay(),
